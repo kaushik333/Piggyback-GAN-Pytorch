@@ -1,15 +1,17 @@
 # Piggyback-GAN-Pytorch
 
+![Piggyback GAN](https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123660392.pdf) is a framework for lifelong learning in generative models. Specifically, it considers the problem of image-to-image translation using the CycleGAN and Pix2Pix framework. The goal (as with any lifelong learning framework) is to be able to learn as many tasks as possible, with minimal increase in no. of parameters. 
+
 ## Introduction
 The CycleGAN and Pix2Pix code is mostly taken from ![here](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). 
 
-The main contribution of this repository is the implementation of PiggybackConv and PiggybackTransposeConv module in ```./models/networks.py```. These are custom convolution modules that have unconstrained filters and piggyback filters. As described in the paper, there are only unconstrained filters for Task 1. In the subsequent tasks, there are both piggyback and unconstrained filters. 
+The main contribution of this repository is the implementation of PiggybackConv and PiggybackTransposeConv module in ```./models/networks.py```. These are custom convolution modules that have unconstrained filters and piggyback filters. As described in the paper, there are only unconstrained filters for Task 1. In the subsequent tasks, there are both piggyback and unconstrained filters. An illustartion of this task-wise filter learning is shown below with a figure from the paper: ![](./README_figures/pb_gan_pic.png)
 
-The repository also implements parallelism through nn.DistributedDataParallel. 
+The repository also implements GPU parallelism through nn.DistributedDataParallel. 
 
-## Results visualization 
-The task wise filter learning is illustrated below in the fgure taken from the paper:
-![](./README_figures/pb_gan_pic.png)
+## Results
+The task wise filter learning is illustrated below in the figure taken from the paper:
+
 
 ## Instructions to run
 First, run the following to setup the environment: 
@@ -35,9 +37,9 @@ To perform testing from trained model, use:
 python pb_cycleGAN.py train=False
 ```
 
-Todo: 
-1. Write README
-2. Include experiemnts on pix2pix
-3. Include argparse to take in options from cmd line.
-4. Add dataset download scripts. 
-5. Calculate FID and tabulate results.
+## Todo: 
+- [x] Write README
+- [x] Include hydra for config management. 
+- [x] Add dataset download scripts.
+- [ ] Include experiemnts on pix2pix
+- [ ] Calculate FID and tabulate results.
