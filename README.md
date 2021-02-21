@@ -33,8 +33,7 @@ python pb_cycleGAN.py train=True
 ```
 
 After training, the following folder structure is created: 
-
-.
+```
 +-- checkpoints
     +-- Task_1_cityscapes_cycleGAN
         +-- Intermediate_train_images
@@ -52,7 +51,7 @@ After training, the following folder structure is created:
         +-- Intermediate_train_images
         +-- filters.pt 
         +-- latest_checkpoint.pt
-
+```
 To perform testing from trained model, use:
 ```
 python pb_cycleGAN.py train=False
@@ -61,6 +60,8 @@ python pb_cycleGAN.py train=False
 During the testing phase, the code restores the filters from the last task and uses only parts of it for every task. 
 This is because with every task, the weights (unconstrined filter bank and piggyback weight matrix) of current and all previous
 tasks are stored. 
+
+After testing code is run, a folder called Test_images gets created under each Task_x_y_cycleGAN folder.
 
 ## Todo: 
 - [x] Write README
