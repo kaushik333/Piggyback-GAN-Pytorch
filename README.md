@@ -9,8 +9,9 @@ The main contribution of this repository is the implementation of PiggybackConv 
 The repository also implements GPU parallelism through nn.DistributedDataParallel. 
 
 ## Results
-The task wise filter learning is illustrated below in the figure taken from the paper:
+The performance of Piggyback GAN on each of the sequential tasks at the end of 4 tasks is visualized below: 
 
+![](./README_figures/pb_gan_all_tasks.png)
 
 ## Instructions to run
 First, run the following to setup the environment: 
@@ -30,6 +31,27 @@ To perform training, run:
 ```
 python pb_cycleGAN.py train=True
 ```
+
+After training, the following folder structure is created: 
+
+.
++-- checkpoints
+    +-- Task_1_cityscapes_cycleGAN
+        +-- Intermediate_train_images
+        +-- filters.pt 
+        +-- latest_checkpoint.pt
+    +-- Task_2_maps_cycleGAN
+        +-- Intermediate_train_images
+        +-- filters.pt 
+        +-- latest_checkpoint.pt
+    +-- Task_1_facades_cycleGAN
+        +-- Intermediate_train_images
+        +-- filters.pt 
+        +-- latest_checkpoint.pt
+    +-- Task_1_vangogh2photo_cycleGAN
+        +-- Intermediate_train_images
+        +-- filters.pt 
+        +-- latest_checkpoint.pt
 
 To perform testing from trained model, use:
 ```
