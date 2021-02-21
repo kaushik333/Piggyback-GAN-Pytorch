@@ -43,11 +43,11 @@ After training, the following folder structure is created:
         +-- Intermediate_train_images
         +-- filters.pt 
         +-- latest_checkpoint.pt
-    +-- Task_1_facades_cycleGAN
+    +-- Task_3_facades_cycleGAN
         +-- Intermediate_train_images
         +-- filters.pt 
         +-- latest_checkpoint.pt
-    +-- Task_1_vangogh2photo_cycleGAN
+    +-- Task_4_vangogh2photo_cycleGAN
         +-- Intermediate_train_images
         +-- filters.pt 
         +-- latest_checkpoint.pt
