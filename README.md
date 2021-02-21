@@ -1,6 +1,5 @@
 # Piggyback-GAN-Pytorch
 
-## Introduction
 [Piggyback GAN](https://www.sfu.ca/~mnawhal/projects/zhai_eccv20.pdf) is a framework for lifelong learning in generative models. Specifically, it considers the problem of image-to-image translation using the CycleGAN and Pix2Pix framework. The goal (as with any lifelong learning framework) is to be able to learn as many tasks as possible, with minimal increase in no. of parameters. 
 
 The CycleGAN and Pix2Pix code is mostly taken from [here](https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix). 
