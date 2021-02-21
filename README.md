@@ -36,6 +36,10 @@ To perform testing from trained model, use:
 python pb_cycleGAN.py train=False
 ```
 
+During the testing phase, the code restores the filters from the last task and uses only parts of it for every task. 
+This is because with every task, the weights (unconstrined filter bank and piggyback weight matrix) of current and all previous
+tasks are stored. 
+
 ## Todo: 
 - [x] Write README
 - [x] Include hydra for config management. 
