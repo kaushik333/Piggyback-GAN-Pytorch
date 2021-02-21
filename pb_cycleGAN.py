@@ -11,6 +11,11 @@ import os
 from models.cycleGAN import CycleGAN
 import time
 from models.networks import PiggybackConv, PiggybackTransposeConv, load_pb_conv
+import copy 
+import sys
+
+import hydra
+from omegaconf import DictConfig, OmegaConf
 
 # %%
 def train(gpu, opt):
@@ -160,15 +165,20 @@ def test(opt, task_idx):
 
 # %%
 
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    opt = CycleGANOptions()
-    tasks = ['../pytorch-CycleGAN-and-pix2pix/datasets/cityscapes', '../pytorch-CycleGAN-and-pix2pix/datasets/maps', 
-                    '../pytorch-CycleGAN-and-pix2pix/datasets/facades', '../pytorch-CycleGAN-and-pix2pix/datasets/vangogh2photo']
+@hydra.main(config_path="configs", config_name="config")
+def main(opt : DictConfig):
+    
+    os.chdir(hydra.utils.get_original_cwd()) 
+
+    # opt = CycleGANOptions()
+    tasks = ['./datasets/cityscapes', './datasets/maps', './datasets/facades', './datasets/vangogh2photo']
     torch.manual_seed(0)
     np.random.seed(0)
     torch.cuda.manual_seed(0)
     torch.cuda.manual_seed_all(0)
+    OmegaConf.set_struct(opt, False)
 
     if opt.train:
         
@@ -246,3 +256,6 @@ if __name__ == '__main__':
             opt.dataroot = tasks[task_idx]
             opt.task_num = task_idx+1
             test(opt, task_idx)
+
+if __name__ == "__main__":
+    main()

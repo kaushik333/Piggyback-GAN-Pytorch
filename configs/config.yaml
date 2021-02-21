@@ -1,0 +1,41 @@
+# folder paths
+checkpoints_dir: "./checkpoints"
+
+# device settings
+train: False
+nodes: 1
+gpu_ids: [0,1,2,3]
+nr: 0 # ranking within nodes
+
+# model and arch
+ngf: 64
+ndf: 64
+netD: "basic" # [basic | n_layers | pixel]
+netG: "resnet_9blocks" # [resnet_9blocks | resnet_6blocks | unet_256 | unet_128]
+norm: "instance" # [instance | batch | none]
+init_type: "normal" # [normal | xavier | kaiming | orthogonal]
+init_gain: 0.02 # scaling factor for normal, xavier and orthogonal.
+dropout: False
+
+# train hyperparams
+lambda_A: 10.0
+lambda_B: 10.0
+lambda_identity: 0.5
+start_epoch: 1
+n_epochs: 100
+n_epochs_decay: 100
+beta1: 0.5
+lr: 0.0002
+lr_policy: "linear"
+gan_mode: "lsgan" # [vanilla| lsgan | wgangp]
+
+# dataset related options
+pool_size: 50
+direction: "AtoB"
+input_nc: 3
+output_nc: 3
+batch_size: 2
+load_size: 286
+crop_size: 256
+preprocess: "resize_and_crop" # [resize_and_crop | crop | scale_width | scale_width_and_crop | none]
+no_flip: False
