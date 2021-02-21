@@ -64,7 +64,7 @@ tasks are stored.
 After testing code is run, a folder called Test_images gets created under each Task_x_y_cycleGAN folder.
 
 ## Todo: 
-- [x] Write README
+- [x] Add results.
 - [x] Include hydra for config management. 
 - [x] Add dataset download scripts.
 - [ ] Include experiemnts on pix2pix
